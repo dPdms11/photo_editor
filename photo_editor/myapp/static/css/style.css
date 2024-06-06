@@ -1,0 +1,221 @@
+html, head, body{
+    height: 100%;
+    overflow: hidden;
+    background-color: #454545;
+    color: white;
+}
+button{
+    margin: 1rem;
+    width: 8rem;
+}
+.hover:hover {
+    color: #262626;
+    cursor: pointer;
+}
+
+/* == navbar == */
+#navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #454545;
+    padding: 0.5rem 0.5rem 1rem 1.5rem;
+}
+.navbar-log{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.navbar-log span{
+    padding-right: 1rem;
+}
+nav div button.btn{
+    margin: 0;
+    height: 3rem;
+    color: white;
+}
+nav div button.btn:hover,
+#dropdown button:hover{
+    background-color: #686868;
+}
+.navbar-options{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#dropdownItems{
+    left: auto;
+    right: 0;
+    position: absolute;
+    background-color: #5e5e5e;
+}
+.dropdown-item{
+    color: white;
+}
+#dropdown button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    width: 3rem;
+}
+#login{
+    width: 11rem;
+    border-radius: 2rem;
+}
+
+/* == modal == */
+.modal-head{
+    display: flex;
+    justify-content: flex-end;
+}
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 5rem;
+    color: black;
+}
+.modal-body input,
+.modal-body button{
+    width: 21rem;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #9c9c9c;
+    border-radius: 0.25rem;
+}
+.modal-body label{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 0.2rem;
+    font-weight: bold;
+}
+.modal-body button{
+    border: none;
+    background-color: black;
+    color: white;
+    margin: 1rem 0;
+}
+.register{
+    display: flex;
+    color: black;
+    font-size: 0.9rem;
+    padding: 0 5rem;
+    padding-bottom: 1.5rem;
+}
+.messages{
+    font-size: 0.7rem;
+    color: red;
+}
+.messages .errorlist{
+    padding-left: 0.5rem;
+}
+.helptext{
+    display: none;
+}
+#signup-link{
+    margin-left: 0.5rem;
+    color: blue;
+    font-weight: bold;
+}
+#register-user{
+    font-weight: bold;
+    color: black;
+}
+
+/* == home page == */
+.image-dir{
+    display: flex;
+    justify-content: center;
+}
+#uploadForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    width: 20rem;
+    height: 25rem;
+    background-color: #393939;
+    border: 2px dotted #9c9c9c66;
+    border-radius: 1rem;
+}
+#uploadForm input{
+    background-color: blue;
+}
+#uploadForm label{
+    margin: 2rem;
+    width: 8rem;
+}
+
+/* == workspace == */
+.workspace{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+.row1{
+    flex-grow: 1;
+    width: 100%;
+}
+.row2{
+    bottom: 0;
+    position: fixed;
+    padding-right: 2rem;
+    width: 100%;
+    background-color: #454545;
+}
+.col-tools{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0;
+    width: 50rem;
+}
+.col-frame{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #2e2e2e;
+}
+.col-button{
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em 0;
+}
+.filters{
+    padding: 2rem;
+    background-color: #393939;
+    border: 1px solid #9c9c9c;
+    border-radius: 20px;
+}
+.filters input{
+    width: 200px;
+}
+#image{
+    padding: 2em;
+    width: 100%;
+}
+
+/* == filters == */
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+    margin-top: -5px;
+}
+input[type=range]::-webkit-slider-runnable-track{
+    border-radius: 3px;
+    height: 5px;
+    background-color: #00000070;
+}
+#saturationScale::-webkit-slider-runnable-track{
+    background: linear-gradient(90deg, #5d5d5d 0%, #ff0000 100%);
+}
+#tintScale::-webkit-slider-runnable-track{
+    background: linear-gradient(90deg, #ffffff 0%, #fffa00 15%, #00ff33 25%, #00ff8c 35%, #0048ff 50%, #cc00fa 65%, #ff00d0 75%, #ff007b 85%, #ffffff 100%);
+}
