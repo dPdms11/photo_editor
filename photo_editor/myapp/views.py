@@ -27,9 +27,8 @@ def home(request):
         return render(request, "home.html", {"user_form": user_form})
 
 def workspace(request, id):
-    image = ImageModel.objects.get(pk=id)
     user_form = CustomUserForm()
-    return render(request, "workspace.html", {"image": image, "user_form": user_form})
+    return render(request, "workspace.html", {"imgId": id, "user_form": user_form})
 
 def register(request):
     if request.method == "POST":

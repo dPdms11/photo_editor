@@ -1,8 +1,16 @@
-let img = document.getElementById("image");
+import db from './db.js';
+
+let img = document.getElementById('image');
+
+// Load file from IndexedDB
+document.addEventListener('DOMContentLoaded', async () => {
+    const file = await db.images.get(parseInt(img.name));
+    img.src = URL.createObjectURL(file);
+})
 
 // Adjust brightness
 function adjustBrightness(brightness) {
-    const brightnessValue = document.getElementById("brightnessValue");
+    const brightnessValue = document.getElementById('brightnessValue');
     brightnessValue.innerText = brightness - 100;
 
     const currentFilter = img.style.filter;
@@ -12,7 +20,7 @@ function adjustBrightness(brightness) {
 
 // Adjust contrast
 function adjustContrast(contrast) {
-    const contrastValue = document.getElementById("contrastValue");
+    const contrastValue = document.getElementById('contrastValue');
     contrastValue.innerText = contrast - 100;
 
     const currentFilter = img.style.filter;
@@ -22,7 +30,7 @@ function adjustContrast(contrast) {
 
 // Adjust saturation
 function adjustSaturation(saturation) {
-    const saturationValue = document.getElementById("saturationValue");
+    const saturationValue = document.getElementById('saturationValue');
     saturationValue.innerText = saturation - 100;
 
     const currentFilter = img.style.filter;
@@ -32,7 +40,7 @@ function adjustSaturation(saturation) {
 
 // Adjust hue
 function adjustTint(tint) {
-    const tintValue = document.getElementById("tintValue");
+    const tintValue = document.getElementById('tintValue');
     tintValue.innerText = tint;
 
     const currentFilter = img.style.filter;
@@ -42,7 +50,7 @@ function adjustTint(tint) {
 
 // Adjust blur
 function adjustBlur(blur) {
-    const blurValue = document.getElementById("blurValue");
+    const blurValue = document.getElementById('blurValue');
     blurValue.innerText = (blur * 20);
     
     const currentFilter = img.style.filter;
@@ -51,14 +59,14 @@ function adjustBlur(blur) {
 };
 
 // Download edited image onto computer
-document.getElementById("downloadImage").addEventListener("click", () => {
-    img = document.getElementById("image");
+document.getElementById('downloadImage').addEventListener('click', () => {
+    img = document.getElementById('image');
 
     // // Create new canvas element
-    const canvas = document.createElement("canvas");
+    const canvas = document.createElement('canvas');
 
     // Draw image onto 2D canvas
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext('2d');
     ctx.filter = img.style.filter;
     ctx.drawImage(img, 0, 0, img.width, img.height);
 
@@ -66,14 +74,14 @@ document.getElementById("downloadImage").addEventListener("click", () => {
     const dataURL = canvas.toDataURL();
 
     // Create new anchor element to download
-    const link = document.createElement("a");
+    const link = document.createElement('a');
     link.href = dataURL;
-    link.download = "image-1.png";
+    link.download = 'image-1.png';
 
     link.click();
 });
 
 // Close image and return to home page
-document.getElementById("closeImage").addEventListener("click", () => {
-    window.location.href = "/";
+document.getElementById('closeImage').addEventListener('click', () => {
+    window.location.href = '/';
 })
