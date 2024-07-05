@@ -40,3 +40,44 @@ uploadForm.addEventListener('change', async function(event) {
         }
     }
 });
+
+// if user is not logged in, get images from indexedDB
+document.addEventListener('DOMContentLoaded', () => {
+    async function displayImages() {
+        let images = await db.images.toArray();
+        images = images.slice(-3);
+
+        const imageContainer = document.getElementById('imageContainer');
+        images.forEach((image) => {
+            // create frame for each image
+            const frameElement = document.createElement('div');
+            frameElement.id = image.id;
+            imageContainer.appendChild(frameElement);
+            
+            frameElement.addEventListener('click', () => {
+                window.location.href = `/workspace/${frameElement.id}`;
+            });
+            
+            // fit image in each frame
+            const imgElement = document.createElement('img');
+            imgElement.src = URL.createObjectURL(image);
+            frameElement.appendChild(imgElement);
+        });
+
+        const frameElement = document.createElement('div');
+        frameElement.innerText = 'Login to access more images';
+        imageContainer.appendChild(frameElement);
+        
+        frameElement.addEventListener('click', () => {
+            // redirect to login or directory if logged in
+        });
+    }
+
+    displayImages().catch((error) => {
+        console.error('Failed to display images:', error);
+    })
+})
+
+function openImage(id) {
+    console.log(id);
+}

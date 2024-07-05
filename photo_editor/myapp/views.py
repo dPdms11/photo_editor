@@ -24,6 +24,7 @@ def home(request):
             return JsonResponse({'status': 500, 'error': 'not a valid image'})
     else:
         user_form = CustomUserForm()
+        # TBD - if user is logged in, get images from database
         return render(request, "home.html", {"user_form": user_form})
 
 def workspace(request, id):
