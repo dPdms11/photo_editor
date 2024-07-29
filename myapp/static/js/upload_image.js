@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         frameElement.addEventListener('click', () => {
             // redirect to login or directory if logged in
+            const login = document.getElementById('login');
+            login.click();
         });
     }
 
@@ -77,7 +79,3 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Failed to display images:', error);
     })
 })
-
-function openImage(id) {
-    console.log(id);
-}
