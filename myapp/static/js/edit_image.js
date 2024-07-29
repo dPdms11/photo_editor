@@ -9,54 +9,59 @@ document.addEventListener('DOMContentLoaded', async () => {
 })
 
 // Adjust brightness
-function adjustBrightness(brightness) {
+const brightnessScale = document.getElementById('brightnessScale');
+brightnessScale.addEventListener('input', () => {
     const brightnessValue = document.getElementById('brightnessValue');
-    brightnessValue.innerText = brightness - 100;
+    brightnessValue.innerText = brightnessScale.value - 100;
 
     const currentFilter = img.style.filter;
-    const newFilter = currentFilter.replace(/brightness\(\d+%\)/, `brightness(${brightness}%)`);
+    const newFilter = currentFilter.replace(/brightness\(\d+%\)/, `brightness(${brightnessScale.value}%)`);
     img.style.filter = newFilter;
-};
+});
 
 // Adjust contrast
-function adjustContrast(contrast) {
+const contrastScale = document.getElementById('contrastScale');
+contrastScale.addEventListener('input', () => {
     const contrastValue = document.getElementById('contrastValue');
-    contrastValue.innerText = contrast - 100;
+    contrastValue.innerText = contrastScale.value - 100;
 
     const currentFilter = img.style.filter;
-    const newFilter = currentFilter.replace(/contrast\(\d+%\)/, `contrast(${contrast}%)`);
+    const newFilter = currentFilter.replace(/contrast\(\d+%\)/, `contrast(${contrastScale.value}%)`);
     img.style.filter = newFilter;
-};
+});
 
 // Adjust saturation
-function adjustSaturation(saturation) {
+const saturationScale = document.getElementById('saturationScale');
+saturationScale.addEventListener('input', () => {
     const saturationValue = document.getElementById('saturationValue');
-    saturationValue.innerText = saturation - 100;
+    saturationValue.innerText = saturationScale.value - 100;
 
     const currentFilter = img.style.filter;
-    const newFilter = currentFilter.replace(/saturate\(\d+%\)/, `saturate(${saturation}%)`);
+    const newFilter = currentFilter.replace(/saturate\(\d+%\)/, `saturate(${saturationScale.value}%)`);
     img.style.filter = newFilter;
-};
+});
 
 // Adjust hue
-function adjustTint(tint) {
+const tintScale = document.getElementById('tintScale')
+tintScale.addEventListener('input', () => {
     const tintValue = document.getElementById('tintValue');
-    tintValue.innerText = tint;
+    tintValue.innerText = tintScale.value;
 
     const currentFilter = img.style.filter;
-    const newFilter = currentFilter.replace(/hue-rotate\(\d+deg\)/, `hue-rotate(${tint}deg)`);
+    const newFilter = currentFilter.replace(/hue-rotate\(\d+deg\)/, `hue-rotate(${tintScale.value}deg)`);
     img.style.filter = newFilter;
-};
+});
 
 // Adjust blur
-function adjustBlur(blur) {
+const blurScale = document.getElementById('blurScale')
+blurScale.addEventListener('input', () => {
     const blurValue = document.getElementById('blurValue');
-    blurValue.innerText = (blur * 20);
+    blurValue.innerText = (blurScale.value * 20);
     
     const currentFilter = img.style.filter;
-    const newFilter = currentFilter.replace(/blur\(\d+(\.\d+)?px\)/, `blur(${blur}px)`);
+    const newFilter = currentFilter.replace(/blur\(\d+(\.\d+)?px\)/, `blur(${blurScale.value}px)`);
     img.style.filter = newFilter;
-};
+});
 
 // Download edited image onto computer
 document.getElementById('downloadImage').addEventListener('click', () => {
